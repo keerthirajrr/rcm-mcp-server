@@ -476,14 +476,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 🆘 Support & Contact
-
-For technical support, feature requests, or questions:
-- **Documentation**: [docs.example.com]
-- **Issues**: [GitHub Issues]
-- **Email**: support@example.com
-- **Discord**: [Community Discord]
-
----
-
 **Built with ❤️ for Healthcare Revenue Cycle Management**
