@@ -1,36 +1,3 @@
-# Security Policy
-
-## Supported Versions
-
-We provide security updates for the following versions:
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-
-## Reporting a Vulnerability
-
-**Please do not report security vulnerabilities through public GitHub issues.**
-
-Instead, please report security vulnerabilities to us privately. We take all security bugs seriously.
-
-### How to Report
-
-Send an email to: **security@yourproject.com** (replace with your actual email)
-
-Include the following information:
-- Description of the vulnerability
-- Steps to reproduce the issue
-- Potential impact
-- Any suggested fixes (if available)
-
-### Response Timeline
-
-- **Acknowledgment**: We will acknowledge receipt within 48 hours
-- **Initial Assessment**: We will provide an initial assessment within 7 days
-- **Fix Timeline**: Critical vulnerabilities will be patched within 30 days
-- **Disclosure**: We follow coordinated disclosure practices
-
 ## Security Features
 
 This project implements several security measures:
@@ -111,12 +78,3 @@ In case of a security incident:
 4. Remediation and recovery
 5. Post-incident review
 
-## Contact
-
-For security concerns, contact:
-- **Email**: security@yourproject.com
-- **GPG Key**: [If you use GPG encryption]
-
-## Acknowledgments
-
-We appreciate the security research community and will acknowledge security researchers who responsibly disclose vulnerabilities to us.
