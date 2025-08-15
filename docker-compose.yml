@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  rcm-mcp-server:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - JWT_SECRET=development-secret-change-in-production
+      - LOG_LEVEL=info
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - rcm-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - rcm-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=rcm_db
+      - POSTGRES_USER=rcm_user
+      - POSTGRES_PASSWORD=rcm_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - rcm-network
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - rcm-mcp-server
+    networks:
+      - rcm-network
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  postgres-data:
+
+networks:
+  rcm-network:
+    driver: bridge
